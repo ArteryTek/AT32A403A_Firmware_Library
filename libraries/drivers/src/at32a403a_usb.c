@@ -528,6 +528,40 @@ flag_status usb_flag_get(usbd_type *usbx, uint16_t flag)
 }
 
 /**
+  * @brief  get interrupt flag of usb.
+  * @param  usbx: select the usb peripheral
+  * @param  flag: select the usb flag
+  *         this parameter can be one of the following values:
+  *         - USB_LSOF_FLAG
+  *         - USB_SOF_FLAG
+  *         - USB_RST_FLAG
+  *         - USB_SP_FLAG
+  *         - USB_WK_FLAG
+  *         - USB_BE_FLAG
+  *         - USB_UCFOR_FLAG
+  *         - USB_TC_FLAG
+  * @retval none
+  */
+flag_status usb_interrupt_flag_get(usbd_type *usbx, uint16_t flag)
+{
+  flag_status status = RESET;
+  
+  if(flag == USB_TC_FLAG)
+  {
+    if(usbx->intsts & USB_TC_FLAG)
+      status = SET;
+  }
+  else
+  {
+    if((usbx->intsts & flag) && (usbx->ctrl & flag))
+    {
+      status = SET;
+    }
+  }
+  return status;
+}
+
+/**
   * @brief  clear flag of usb.
   * @param  usbx: select the usb peripheral
   * @param  flag: select the usb flag
