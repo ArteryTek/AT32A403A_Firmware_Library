@@ -458,6 +458,11 @@
               <FilePath>..\..\..\..\libraries\drivers\src\at32a403a_dma.c</FilePath>
             </File>
             <File>
+              <FileName>at32a403a_emac.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\libraries\drivers\src\at32a403a_emac.c</FilePath>
+            </File>
+            <File>
               <FileName>at32a403a_exint.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\libraries\drivers\src\at32a403a_exint.c</FilePath>
@@ -572,7 +577,7 @@
   <LayerInfo>
     <Layers>
       <Layer>
-        <LayName>&lt;Project Info&gt;</LayName>
+        <LayName>template</LayName>
         <LayDesc></LayDesc>
         <LayUrl></LayUrl>
         <LayKeys></LayKeys>

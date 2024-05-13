@@ -30,7 +30,6 @@
 extern "C" {
 #endif
 
-
 /**
   * @brief in the following line adjust the value of high speed external crystal (hext)
   * used in your application
@@ -74,6 +73,7 @@ extern "C" {
 #define USB_MODULE_ENABLED
 #define ACC_MODULE_ENABLED
 #define MISC_MODULE_ENABLED
+#define EMAC_MODULE_ENABLED
 
 /* includes ------------------------------------------------------------------*/
 #ifdef CRM_MODULE_ENABLED
@@ -148,11 +148,12 @@ extern "C" {
 #ifdef USB_MODULE_ENABLED
 #include "at32a403a_usb.h"
 #endif
+#ifdef EMAC_MODULE_ENABLED
+#include "at32a403a_emac.h"
+#endif
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __AT32A403A_CONF_H */
-
-
+#endif

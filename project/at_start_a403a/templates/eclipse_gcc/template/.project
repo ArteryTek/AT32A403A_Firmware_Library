@@ -85,6 +85,11 @@
 			<locationURI>PARENT-5-PROJECT_LOC/libraries/drivers/src/at32a403a_dma.c</locationURI>
 		</link>
 		<link>
+			<name>firmware/at32a403a_emac.c</name>
+			<type>1</type>
+			<locationURI>PARENT-5-PROJECT_LOC/libraries/drivers/src/at32a403a_emac.c</locationURI>
+		</link>
+		<link>
 			<name>firmware/at32a403a_exint.c</name>
 			<type>1</type>
 			<locationURI>PARENT-5-PROJECT_LOC/libraries/drivers/src/at32a403a_exint.c</locationURI>

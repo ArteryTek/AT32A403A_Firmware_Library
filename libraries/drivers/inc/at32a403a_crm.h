@@ -105,6 +105,10 @@ typedef enum
   CRM_XMC_PERIPH_CLOCK                   = MAKE_VALUE(0x14, 8),  /*!< xmc periph clock */
   CRM_SDIO1_PERIPH_CLOCK                 = MAKE_VALUE(0x14, 10), /*!< sdio1 periph clock */
   CRM_SDIO2_PERIPH_CLOCK                 = MAKE_VALUE(0x14, 11), /*!< sdio2 periph clock */
+  CRM_EMAC_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 14), /*!< emac periph clock */
+  CRM_EMACTX_PERIPH_CLOCK                = MAKE_VALUE(0x14, 15), /*!< emac tx periph clock */
+  CRM_EMACRX_PERIPH_CLOCK                = MAKE_VALUE(0x14, 16), /*!< emac rx periph clock */
+  CRM_EMACPTP_PERIPH_CLOCK               = MAKE_VALUE(0x14, 28), /*!< emac ptp periph clock */
   /* apb2 periph */
   CRM_IOMUX_PERIPH_CLOCK                 = MAKE_VALUE(0x18, 0),  /*!< iomux periph clock */
   CRM_GPIOA_PERIPH_CLOCK                 = MAKE_VALUE(0x18, 2),  /*!< gpioa periph clock */
@@ -160,6 +164,8 @@ typedef enum
   */
 typedef enum
 {
+  /* ahb periph */
+  CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
   /* apb2 periph */
   CRM_IOMUX_PERIPH_RESET                 = MAKE_VALUE(0x0C, 0),  /*!< iomux periph reset */
   CRM_EXINT_PERIPH_RESET                 = MAKE_VALUE(0x0C, 1),  /*!< exint periph reset */
@@ -702,7 +708,13 @@ typedef struct
       __IO uint32_t reserved4            : 1; /* [9] */
       __IO uint32_t sdio1en              : 1; /* [10] */
       __IO uint32_t sdio2en              : 1; /* [11] */
-      __IO uint32_t reserved5            : 20;/* [31:12] */
+      __IO uint32_t reserved5            : 2; /* [13:12] */
+      __IO uint32_t emacen               : 1; /* [14] */
+      __IO uint32_t emactxen             : 1; /* [15] */
+      __IO uint32_t emacrxen             : 1; /* [16] */
+      __IO uint32_t reserved6            : 11;/* [27:17] */
+      __IO uint32_t emacptpen            : 1; /* [28] */
+      __IO uint32_t reserved7            : 3; /* [31:29] */
     } ahben_bit;
   };
 
@@ -830,6 +842,12 @@ typedef struct
   union
   {
     __IO uint32_t ahbrst;
+    struct
+    {
+      __IO uint32_t reserved1            : 14;/* [13:0] */
+      __IO uint32_t emacrst              : 1; /* [14] */
+      __IO uint32_t reserved2            : 17;/* [31:15] */
+    } ahbrst_bit;
   };
 
   /**
@@ -962,6 +980,7 @@ void crm_usb_clock_source_select(crm_usb_clock_source_type value);
 void crm_clkout_to_tmr10_enable(confirm_state new_state);
 void crm_hext_clock_div_set(crm_hext_div_type value);
 void crm_clkout_div_set(crm_clkout_div_type clkout_div);
+void crm_emac_output_pulse_set(crm_emac_output_pulse_type width);
 
 /**
   * @}

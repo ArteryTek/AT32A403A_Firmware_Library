@@ -30,22 +30,11 @@
 extern "C" {
 #endif
 
-
-/** @addtogroup AT32A403A_periph_template
-  * @{
-  */
-
-/** @addtogroup 403A_Library_configuration Library_configuration
-  * @{
-  */
-
 /**
   * @brief in the following line adjust the value of high speed external crystal (hext)
   * used in your application
-  *
   * tip: to avoid modifying this file each time you need to use different hext, you
   *      can define the hext value in your toolchain compiler preprocessor.
-  *
   */
 #if !defined  HEXT_VALUE
 #define HEXT_VALUE                       ((uint32_t)8000000) /*!< value of the high speed external crystal in hz */
@@ -84,6 +73,7 @@ extern "C" {
 #define USB_MODULE_ENABLED
 #define ACC_MODULE_ENABLED
 #define MISC_MODULE_ENABLED
+#define EMAC_MODULE_ENABLED
 
 /* includes ------------------------------------------------------------------*/
 #ifdef CRM_MODULE_ENABLED
@@ -158,14 +148,9 @@ extern "C" {
 #ifdef USB_MODULE_ENABLED
 #include "at32a403a_usb.h"
 #endif
-
-/**
-  * @}
-  */
-
-  /**
-  * @}
-  */
+#ifdef EMAC_MODULE_ENABLED
+#include "at32a403a_emac.h"
+#endif
 
 #ifdef __cplusplus
 }

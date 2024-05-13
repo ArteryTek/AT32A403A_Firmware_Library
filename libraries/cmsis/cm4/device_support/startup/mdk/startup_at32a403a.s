@@ -277,7 +277,6 @@ Default_Handler PROC
                 EXPORT  UART8_IRQHandler                    [WEAK]
                 EXPORT  EMAC_IRQHandler                     [WEAK]
                 EXPORT  EMAC_WKUP_IRQHandler                [WEAK]
-
 WWDT_IRQHandler
 PVM_IRQHandler
 TAMPER_IRQHandler

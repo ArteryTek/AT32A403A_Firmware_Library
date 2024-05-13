@@ -892,6 +892,19 @@ void crm_clkout_div_set(crm_clkout_div_type clkout_div)
 }
 
 /**
+  * @brief  set emac output pulse width
+  * @param  width
+  *         this parameter can be one of the following values:
+  *         - CRM_EMAC_PULSE_125MS
+  *         - CRM_EMAC_PULSE_1SCLK
+  * @retval none
+  */
+void crm_emac_output_pulse_set(crm_emac_output_pulse_type width)
+{
+  CRM->misc3_bit.emac_pps_sel = width;
+}
+
+/**
   * @}
   */
 

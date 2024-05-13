@@ -92,6 +92,7 @@ extern "C" {
 #define TMR3_MUX_10                      TMR3_GMUX_0010    /*!< tmr3_ch1(pb4),      tmr3_ch2(pb5),   tmr3_ch3(pb0),   tmr3_ch4(pb1) */
 #define TMR3_MUX_11                      TMR3_GMUX_0011    /*!< tmr3_ch1(pc6),      tmr3_ch2(pc7),   tmr3_ch3(pc8),   tmr3_ch4(pc9) */
 #define TMR4_MUX                         TMR4_GMUX_0001    /*!< tmr4_ch1(pd12),     tmr4_ch2(pd13),  tmr4_ch3(pd14),  tmr4_ch4(pd15) */
+#define CAN_MUX_00                       CAN1_GMUX_0000    /*!< can_rx(pa11),       can_tx(pa12) */
 #define CAN_MUX_10                       CAN1_GMUX_0010    /*!< can_rx(pb8),        can_tx(pb9) */
 #define CAN_MUX_11                       CAN1_GMUX_0011    /*!< can_rx(pd0),        can_tx(pd1) */
 #define PD01_MUX                         PD01_GMUX         /*!< pd0/pd1 mapping on osc_in/osc_out */
@@ -100,9 +101,15 @@ extern "C" {
 #define ADC1_ETO_MUX                     ADC1_ETO_GMUX     /*!< adc1 external trigger ordinary conversion muxing */
 #define ADC2_ETP_MUX                     ADC2_ETP_GMUX     /*!< adc2 external trigger preempted conversion muxing */
 #define ADC2_ETO_MUX                     ADC2_ETO_GMUX     /*!< adc2 external trigger ordinary conversion muxing */
+#define EMAC_MUX                         EMAC_GMUX_01      /*!< rx_dv/crs_dv(pd8), rxd0(pd9), rxd1(pd10), rxd2(pd11), rxd3(pd12) */
+#define CAN2_MUX                         CAN2_GMUX_0001    /*!< can2_rx(pb5), can2_tx(pb6) */
+#define MII_RMII_SEL_MUX                 MII_RMII_SEL_GMUX /*!< mii or rmii selection */
 #define SWJTAG_MUX_001                   SWJTAG_GMUX_001   /*!< full swj enabled  (jtag-dp  +  sw-dp)  but without jtrst */
 #define SWJTAG_MUX_010                   SWJTAG_GMUX_010   /*!< jtag-dp disabled and sw-dp enabled */
 #define SWJTAG_MUX_100                   SWJTAG_GMUX_100   /*!< full swj disabled  (jtag-dp  +  sw-dp) */
+#define SPI3_MUX                         SPI3_GMUX_0001    /*!< spi3_cs/i2s3_ws(pa4), spi3_sck/i2s3_ck(pc10), spi3_miso(pc11), spi3_mosi/i2s3_sd(pc12), i2s3_mck(pc7) */
+#define TMR2ITR1_MUX                     TMR2ITR1_GMAP_10  /*!< tmr2 internal trigger 1 mux remapping */
+#define PTP_PPS_MUX                      PTP_PPS_GMUX      /*!< ethernet ptp pps mux function remapping */
 
 /**
   * @}
@@ -230,6 +237,10 @@ extern "C" {
   * @brief iomux map8 definitions
   * @{
   */
+
+#define EMAC_GMUX_01                     IOMUX_MAKE_VALUE(0x34, 16, 2, 0x01) /*!< rx_dv/crs_dv(pd8), rxd0(pd9), rxd1(pd10), rxd2(pd11), rxd3(pd12) */
+#define MII_RMII_SEL_GMUX                IOMUX_MAKE_VALUE(0x34, 18, 1, 0x01) /*!< mii or rmii selection */
+#define PTP_PPS_GMUX                     IOMUX_MAKE_VALUE(0x34, 19, 1, 0x01) /*!< ethernet ptp pps mux function remapping */
 
 #define USART6_GMUX                      IOMUX_MAKE_VALUE(0x34, 20, 4, 0x01) /*!< usart6_tx(pa4), usart6_rx(pa5) */
 #define UART7_GMUX                       IOMUX_MAKE_VALUE(0x34, 24, 4, 0x01) /*!< uart7_tx(pb4),  uart7_rx(pb3) */

@@ -125,7 +125,7 @@ extern "C" {
   */
 #define __AT32A403A_LIBRARY_VERSION_MAJOR    (0x02) /*!< [31:24] major version */
 #define __AT32A403A_LIBRARY_VERSION_MIDDLE   (0x00) /*!< [23:16] middle version */
-#define __AT32A403A_LIBRARY_VERSION_MINOR    (0x02) /*!< [15:8]  minor version */
+#define __AT32A403A_LIBRARY_VERSION_MINOR    (0x03) /*!< [15:8]  minor version */
 #define __AT32A403A_LIBRARY_VERSION_RC       (0x00) /*!< [7:0]  release candidate */
 #define __AT32A403A_LIBRARY_VERSION          ((__AT32A403A_LIBRARY_VERSION_MAJOR << 24)  | \
                                               (__AT32A403A_LIBRARY_VERSION_MIDDLE << 16) | \
@@ -245,6 +245,8 @@ typedef enum IRQn
     UART7_IRQn                  = 77,     /*!< uart7 interrupt                                      */
     UART8_IRQn                  = 78,     /*!< uart8 interrupt                                      */
 
+    EMAC_IRQn                   = 79,     /*!< emac interrupt                                       */
+    EMAC_WKUP_IRQn              = 80      /*!< emac wakeup interrupt                                */
 } IRQn_Type;
 
 /**
@@ -425,12 +427,12 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 #define FLASH_REG_BASE                   (AHBPERIPH_BASE + 0x2000)
 #define CRC_BASE                         (AHBPERIPH_BASE + 0x3000)
 #define SDIO2_BASE                       (AHBPERIPH_BASE + 0x3400)
+#define EMAC_BASE                        (AHBPERIPH_BASE + 0x8000)
 #define XMC_BANK1_REG_BASE               (XMC_REG_BASE + 0x0000)
-#define XMC_BANK1E_REG_BASE              (XMC_REG_BASE + 0x0104)
-#define XMC_BANK1E_H_BASE                (XMC_REG_BASE + 0x0220)
 #define XMC_BANK2_REG_BASE               (XMC_REG_BASE + 0x0060)
-#define XMC_BANK3_REG_BASE               (XMC_REG_BASE + 0x0080)
-#define XMC_BANK4_REG_BASE               (XMC_REG_BASE + 0x00A0)
+#define EMAC_MMC_BASE                    (EMAC_BASE + 0x0100)
+#define EMAC_PTP_BASE                    (EMAC_BASE + 0x0700)
+#define EMAC_DMA_BASE                    (EMAC_BASE + 0x1000)
 
 /**
   * @}

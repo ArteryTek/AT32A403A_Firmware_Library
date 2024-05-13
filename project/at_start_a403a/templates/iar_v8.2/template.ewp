@@ -2088,6 +2088,9 @@
             <name>$PROJ_DIR$\..\..\..\..\libraries\drivers\src\at32a403a_dma.c</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\..\..\..\..\libraries\drivers\src\at32a403a_emac.c</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\..\..\..\libraries\drivers\src\at32a403a_exint.c</name>
         </file>
         <file>
