@@ -84,4 +84,4 @@
          is correctly executed. the green led4 will turn on some time and then
          a system rest is executed to activate slib. the code will run to step(b).
 
-  for details, please refer to the application note document AN0040.
+  for details, please refer to the application note document AN0189.
