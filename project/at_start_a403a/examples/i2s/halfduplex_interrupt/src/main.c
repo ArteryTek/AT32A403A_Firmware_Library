@@ -142,6 +142,7 @@ static void gpio_config(void)
   gpio_init_type gpio_initstructure;
   crm_periph_clock_enable(CRM_GPIOA_PERIPH_CLOCK, TRUE);
   crm_periph_clock_enable(CRM_GPIOB_PERIPH_CLOCK, TRUE);
+  crm_periph_clock_enable(CRM_GPIOC_PERIPH_CLOCK, TRUE);
   crm_periph_clock_enable(CRM_IOMUX_PERIPH_CLOCK, TRUE);
   gpio_pin_remap_config(SWJTAG_GMUX_010, TRUE);
 
@@ -245,7 +246,7 @@ int main(void)
   while(rx_index < 32);
   
   /* wait master and slave idle when communication end */
-  while(spi_i2s_flag_get(SPI1, SPI_I2S_BF_FLAG) != RESET);
+  while(spi_i2s_flag_get(SPI3, SPI_I2S_BF_FLAG) != RESET);
   while(spi_i2s_flag_get(SPI2, SPI_I2S_BF_FLAG) != RESET);
 
   /* test result:the data check */
@@ -270,7 +271,7 @@ int main(void)
   while(rx_index < 32);
   
   /* wait master and slave idle when communication end */
-  while(spi_i2s_flag_get(SPI1, SPI_I2S_BF_FLAG) != RESET);
+  while(spi_i2s_flag_get(SPI3, SPI_I2S_BF_FLAG) != RESET);
   while(spi_i2s_flag_get(SPI2, SPI_I2S_BF_FLAG) != RESET);
 
   /* test result:the data check */

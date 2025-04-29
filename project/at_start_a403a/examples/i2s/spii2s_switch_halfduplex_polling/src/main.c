@@ -285,7 +285,7 @@ int main(void)
   }
   
   /* wait master and slave idle when communication end */
-  while(spi_i2s_flag_get(SPI1, SPI_I2S_BF_FLAG) != RESET);
+  while(spi_i2s_flag_get(SPI3, SPI_I2S_BF_FLAG) != RESET);
   while(spi_i2s_flag_get(SPI2, SPI_I2S_BF_FLAG) != RESET);
   
   /* end communication: master pull up CS pin release slave */

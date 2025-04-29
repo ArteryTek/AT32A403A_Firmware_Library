@@ -127,9 +127,9 @@ static void gpio_config(void)
   gpio_default_para_init(&gpio_initstructure);
   
   /* master spi cs pin */
-  gpio_initstructure.gpio_out_type       = GPIO_OUTPUT_PUSH_PULL;
-  gpio_initstructure.gpio_pull           = GPIO_PULL_UP;
-  gpio_initstructure.gpio_mode           = GPIO_MODE_OUTPUT;
+  gpio_initstructure.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
+  gpio_initstructure.gpio_pull = GPIO_PULL_UP;
+  gpio_initstructure.gpio_mode = GPIO_MODE_OUTPUT;
   gpio_initstructure.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
   gpio_initstructure.gpio_pins = GPIO_PINS_4;
   gpio_init(GPIOA, &gpio_initstructure);
@@ -138,36 +138,36 @@ static void gpio_config(void)
   SPI_MASTER_CS_HIGH;
 
   /* master spi sck pin */
-  gpio_initstructure.gpio_out_type       = GPIO_OUTPUT_PUSH_PULL;
+  gpio_initstructure.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
   gpio_initstructure.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
-  gpio_initstructure.gpio_pull           = GPIO_PULL_DOWN;
-  gpio_initstructure.gpio_mode           = GPIO_MODE_MUX;
+  gpio_initstructure.gpio_pull = GPIO_PULL_DOWN;
+  gpio_initstructure.gpio_mode = GPIO_MODE_MUX;
   gpio_initstructure.gpio_pins = GPIO_PINS_5;
   gpio_init(GPIOA, &gpio_initstructure);
 
   /* master spi mosi pin */
-  gpio_initstructure.gpio_pull           = GPIO_PULL_UP;
-  gpio_initstructure.gpio_mode           = GPIO_MODE_MUX;
+  gpio_initstructure.gpio_pull = GPIO_PULL_UP;
+  gpio_initstructure.gpio_mode = GPIO_MODE_MUX;
   gpio_initstructure.gpio_pins = GPIO_PINS_7;
   gpio_init(GPIOA, &gpio_initstructure);
   
   /* slave spi cs pin */
-  gpio_initstructure.gpio_out_type       = GPIO_OUTPUT_PUSH_PULL;
-  gpio_initstructure.gpio_pull           = GPIO_PULL_UP;
-  gpio_initstructure.gpio_mode           = GPIO_MODE_INPUT;
+  gpio_initstructure.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
+  gpio_initstructure.gpio_pull = GPIO_PULL_UP;
+  gpio_initstructure.gpio_mode = GPIO_MODE_INPUT;
   gpio_initstructure.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
   gpio_initstructure.gpio_pins = GPIO_PINS_12;
   gpio_init(GPIOB, &gpio_initstructure);
   
   /* slave spi sck pin */
-  gpio_initstructure.gpio_pull           = GPIO_PULL_DOWN;
-  gpio_initstructure.gpio_mode           = GPIO_MODE_INPUT;
+  gpio_initstructure.gpio_pull = GPIO_PULL_DOWN;
+  gpio_initstructure.gpio_mode = GPIO_MODE_INPUT;
   gpio_initstructure.gpio_pins = GPIO_PINS_13;
   gpio_init(GPIOB, &gpio_initstructure);
 
   /* slave spi miso pin */
-  gpio_initstructure.gpio_pull           = GPIO_PULL_UP;
-  gpio_initstructure.gpio_mode           = GPIO_MODE_MUX;
+  gpio_initstructure.gpio_pull = GPIO_PULL_UP;
+  gpio_initstructure.gpio_mode = GPIO_MODE_MUX;
   gpio_initstructure.gpio_pins = GPIO_PINS_14;
   gpio_init(GPIOB, &gpio_initstructure);
 }
